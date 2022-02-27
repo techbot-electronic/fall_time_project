@@ -1,15 +1,15 @@
-int button = 11;
-int led = 2;
+int cbRung = 11;
 void setup() {
-  pinMode(button, INPUT);  //Cài đặt chân D11 ở trạng thái đọc dữ liệu
-  pinMode(led,OUTPUT); // Cài đặt chân D2 dưới dạng OUTPUT
+  Serial.begin(9600);
+  pinMode(cbRung, INPUT);  //Cài đặt chân D11 ở trạng thái đọc dữ liệu
 }
 
 void loop() {
-  int buttonStatus = digitalRead(button);    //Đọc trạng thái button
+  int cbRung = digitalRead(button);    //Đọc trạng thái button
   if (buttonStatus == HIGH) { // Nếu mà button bị nhấn
-    digitalWrite(led,HIGH); // Đèn led sáng
+    Serial.println("OK");
   } else { // ngược lại
-    digitalWrite(led,LOW);
+     Serial.println("NOT OK");
+
   }
 }
