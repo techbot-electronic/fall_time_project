@@ -5,8 +5,8 @@ void setup() {
 }
 
 void loop() {
-  int cbRung = digitalRead(button);    //Đọc trạng thái button
-  if (buttonStatus == HIGH) { // Nếu mà button bị nhấn
+  int readCbRung = digitalRead(cbRung);    //Đọc trạng thái button
+  if (readCbRung == HIGH) { // Nếu mà button bị nhấn
     Serial.println("OK");
   } else { // ngược lại
      Serial.println("NOT OK");
