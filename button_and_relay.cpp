@@ -7,6 +7,8 @@ unsigned long prevMillis = 0;
 
 int TIME_OUT = 0;
 
+bool flg = false;
+
 
 void setup() {
   Serial.begin(9600);
@@ -24,36 +26,46 @@ void setup() {
 void loop() {
   
   // put your main code here, to run repeatedly:
-//  int buttonStatus = digitalRead(button);
+  int buttonStatus = digitalRead(button);
 //
-//  if (buttonStatus == 1) {
-//    Serial.println("BAT RELAY");
-//      digitalWrite(relay, HIGH);
-//  } else {
-//      digitalWrite(relay, LOW);
-//  }
+  if (buttonStatus == 1 && TIME_OUT == 0) {
+    flg = true;
+    Serial.println("BAT RELAY");
+      digitalWrite(relay, HIGH);
+  } else {
+        flg = false;
+        TIME_OUT = 0;
+      digitalWrite(relay, LOW);
+  }
 
     digitalWrite(relay, HIGH);
+    Serial.println("HIGH");
     delay(1000);
-      digitalWrite(relay, LOW);
+     digitalWrite(relay, LOW);
+     Serial.println("LOW");
+
       delay(1000);
 
 
   
 
-//  unsigned long currentMillis = millis();
-//  // Cau hinh chong nhieu khi doc nut nhan
-//  if (currentMillis - prevMillis >= interval) {
-//       prevMillis = currentMillis;
-//       TIME_OUT ++;
-//       // 0, 1, 2, 3 --> 2 s
-//       if (TIME_OUT > 4) {
-//           TIME_OUT = 0;
-//       }
-//       
-//    
-//    
-//   }
+  unsigned long currentMillis = millis();
+  // Cau hinh chong nhieu khi doc nut nhan
+  if (currentMillis - prevMillis >= interval) {
+       prevMillis = currentMillis;
+       if (flg) {
+        TIME_OUT ++;
+       // 0, 1, 2, 3 --> 2 s
+       if (TIME_OUT > 4) {
+           TIME_OUT = 0;
+           flg = false;
+       }
+       }
+       
+       
+    
+    
+   }
    
 
   
