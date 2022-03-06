@@ -9,7 +9,7 @@ int TIME_OUT = 0;
 
 
 void setup() {
-  Seiral.begin(9600);
+  Serial.begin(9600);
   // put your setup code here, to run once:
   // Cau hinh nut nhan nhan tin hieu dau vao
   pinMode(button, INPUT);
