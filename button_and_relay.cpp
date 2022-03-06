@@ -38,13 +38,7 @@ void loop() {
       digitalWrite(relay, LOW);
   }
 
-    digitalWrite(relay, HIGH);
-    Serial.println("HIGH");
-    delay(1000);
-     digitalWrite(relay, LOW);
-     Serial.println("LOW");
 
-      delay(1000);
 
 
   
