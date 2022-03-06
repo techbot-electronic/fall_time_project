@@ -19,7 +19,7 @@ void setup() {
   pinMode(relay, OUTPUT);
 
   // Bat relay de luon luon hut thanh sat
-  digitalWrite(relay, HIGH);
+  digitalWrite(relay, LOW);
 
 }
 
@@ -31,11 +31,11 @@ void loop() {
   if (buttonStatus == 1 && TIME_OUT == 0) {
     flg = true;
     Serial.println("BAT RELAY");
-      digitalWrite(relay, HIGH);
+      digitalWrite(relay, LOW);
   } else {
         flg = false;
         TIME_OUT = 0;
-      digitalWrite(relay, LOW);
+      digitalWrite(relay, HIGH);
   }
 
 
