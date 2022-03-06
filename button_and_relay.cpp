@@ -25,14 +25,17 @@ void loop() {
   
   // put your main code here, to run repeatedly:
   int buttonStatus = digitalRead(button);
-  if (buttonStatus == 1) {
-    Serial.println("BAT RELAY");
-      digitalWrite(relay, HIGH);
-  } else {
-        Serial.println("TTAT RELAY");
-
-      digitalWrite(relay, LOW);
-  }
+  Serial.println(buttonStatus);
+  delay(1000);
+//  
+//  if (buttonStatus == 1) {
+//    Serial.println("BAT RELAY");
+//      digitalWrite(relay, HIGH);
+//  } else {
+//        Serial.println("TTAT RELAY");
+//
+//      digitalWrite(relay, LOW);
+//  }
   
 
 //  unsigned long currentMillis = millis();
