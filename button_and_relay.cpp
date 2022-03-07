@@ -1,10 +1,11 @@
-#include <Wire.h> 
 #include <LiquidCrystal_I2C.h>
+
+#include <Wire.h> 
 //#include <NewPing.h>
 
 int button = 3;
 int relay = 4;
-int cbRung = 5;
+int cbRung = 1;
 
  
 //#define TRIGGER_PIN 11
@@ -56,51 +57,51 @@ void setup() {
 
 void loop() {
 
- // int buttonStatus = digitalRead(button);
-  int cbRung = digitalRead(cbRung);
+ int buttonStatus = digitalRead(button);
+  int cbRung = analogRead(cbRung);
  
    Serial.println(cbRung);
   
-// // unsigned int distance = sonar.ping_cm();
-//  String disp = String("123");
-//  String result = String(count * 10);
-//
-//   if (cbRung == 1 && result != "") {
-//
-//      lcd.clear();
-//      lcd.print("h = :"); // first line 
-//      lcd.setCursor(0, 5); // second line
-//      lcd.print(disp);
-//      lcd.print(" cm");
-//      lcd.setCursor(1, 1); // second line
-//      lcd.print(result);
-//      result = "";
-//    }
-//
-//  
-//  if (debounce > 0) debounce--;
-//
-//  if (buttonStatus == 1 && debounce == 0) {
-//    Serial.println("TAT RELAY");
-//    todo = false;
-//    debounce = 200;
-//    digitalWrite(relay, LOW); // tat 
-//    tag = millis(); // co bat dau dem
-//  }
-//
-//  if (buttonStatus == 0 && debounce == 0 && !todo) {
-//      
-//      todo = true;
-//      debounce = 200;
-//      Serial.println("BAT RELAY");
-//      digitalWrite(relay, HIGH);  // bat
-//  }
-//  
-// 
-//  if (millis() - tag > interval) {
-//    tag = millis();
-//    count += 1;    
-//  }
+ // unsigned int distance = sonar.ping_cm();
+  String disp = String("123");
+  String result = String(count * 10);
+
+   if (cbRung < 500 && result != "") {
+
+      lcd.clear();
+      lcd.print("h = :"); // first line 
+      lcd.setCursor(0, 5); // second line
+      lcd.print(disp);
+      lcd.print(" cm");
+      lcd.setCursor(1, 1); // second line
+      lcd.print(result);
+      result = "";
+    }
+
+  
+  if (debounce > 0) debounce--;
+
+  if (buttonStatus == 1 && debounce == 0) {
+    Serial.println("TAT RELAY");
+    todo = false;
+    debounce = 200;
+    digitalWrite(relay, LOW); // tat 
+    tag = millis(); // co bat dau dem
+  }
+
+  if (buttonStatus == 0 && debounce == 0 && !todo) {
+      
+      todo = true;
+      debounce = 200;
+      Serial.println("BAT RELAY");
+      digitalWrite(relay, HIGH);  // bat
+  }
+  
+ 
+  if (millis() - tag > interval) {
+    tag = millis();
+    count += 1;    
+  }
   
    
 
