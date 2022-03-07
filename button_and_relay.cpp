@@ -31,9 +31,12 @@ bool todo = false;
 
 void setup() {
 
-  lcd.init(); // initialize the lcd 
+  lcd.init();                    
   lcd.backlight();
-  lcd.blink_on();
+  lcd.setCursor(2,0);
+  lcd.print("Arduinokit.vn");
+  lcd.setCursor(0,1);
+  lcd.print("Xin chao cac ban");
   
   Serial.begin(9600);
   
