@@ -67,15 +67,16 @@ void loop() {
   String result = String(count * 10);
 
    if (cbRung < 500 && result != "") {
+    Serial.println("HERE ---->>>");
 
-      lcd.clear();
-      lcd.print("h = :"); // first line 
-      lcd.setCursor(0, 5); // second line
-      lcd.print(disp);
-      lcd.print(" cm");
-      lcd.setCursor(1, 1); // second line
-      lcd.print(result);
-      result = "";
+//      lcd.clear();
+//      lcd.print("h = :"); // first line 
+//      lcd.setCursor(0, 5); // second line
+//      lcd.print(disp);
+//      lcd.print(" cm");
+//      lcd.setCursor(1, 1); // second line
+//      lcd.print(result);
+//      result = "";
     }
 
   
