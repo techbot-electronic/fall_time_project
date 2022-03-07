@@ -45,7 +45,7 @@ void setup() {
   // Cau hinh dieu khien relay
   pinMode(relay, OUTPUT);
 
-  digitalWrite(relay, LOW);
+  digitalWrite(relay, HIGH);
  
 
 
@@ -66,7 +66,7 @@ void loop() {
 
       lcd.clear();
       lcd.print("h = :"); // first line 
-      lcd.setCursor(0, 1); // second line
+      lcd.setCursor(0, 5); // second line
       lcd.print(disp);
       lcd.print(" cm");
       lcd.setCursor(1, 1); // second line
@@ -78,9 +78,10 @@ void loop() {
   if (debounce > 0) debounce--;
 
   if (buttonStatus == 1 && debounce == 0) {
+    Serial.println("TAT RELAY");
     todo = false;
     debounce = 200;
-    digitalWrite(relay, HIGH); // tat 
+    digitalWrite(relay, LOW); // tat 
     tag = millis(); // co bat dau dem
   }
 
@@ -89,7 +90,7 @@ void loop() {
       todo = true;
       debounce = 200;
       Serial.println("BAT RELAY");
-      digitalWrite(relay, LOW);  // bat
+      digitalWrite(relay, HIGH);  // bat
   }
   
  
