@@ -55,6 +55,8 @@ void loop() {
 
   int buttonStatus = digitalRead(button);
   int cbRung = digitalRead(cbRung);
+ 
+   Serial.println(buttonStatus);
   
  // unsigned int distance = sonar.ping_cm();
   String disp = String("123");
