@@ -32,14 +32,12 @@ bool todo = false;
 
 void setup() {
 
-  lcd.init();                    
-  lcd.backlight();
-  lcd.setCursor(2,0);
-  lcd.print("Arduinokit.vn");
-  lcd.setCursor(0,1);
-  lcd.print("Xin chao cac ban");
+
   
   Serial.begin(9600);
+  lcd.init();                    
+  lcd.backlight();
+
   
   // put your setup code here, to run once:
   // Cau hinh nut nhan nhan tin hieu dau vao
@@ -66,17 +64,15 @@ void loop() {
   String disp = String("123");
   String result = String(count * 10);
 
-   if (cbRung < 500 && result != "") {
-    Serial.println("HERE ---->>>");
-
-//      lcd.clear();
-//      lcd.print("h = :"); // first line 
-//      lcd.setCursor(0, 5); // second line
-//      lcd.print(disp);
-//      lcd.print(" cm");
-//      lcd.setCursor(1, 1); // second line
-//      lcd.print(result);
-//      result = "";
+   if (cbRung < 500 && !todo ) {
+      Serial.println("HERE ---->>>");
+      lcd.setCursor(2,0);   //Set cursor to character 2 on line 0
+      lcd.print("Hello world!");
+      lcd.clear();
+      lcd.print("t = "); // first line 
+      lcd.setCursor(4, 0); // second line
+      lcd.print(result);
+  
     }
 
   
