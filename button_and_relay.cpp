@@ -76,6 +76,7 @@ void loop() {
   if (debounce > 0) debounce--;
 
   if (buttonStatus == 1 && debounce == 0) {
+    todo = false;
     debounce = 200;
     digitalWrite(relay, HIGH); // tat 
     tag = millis(); // co bat dau dem
